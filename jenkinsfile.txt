@@ -1,0 +1,31 @@
+pipeline {
+    ageny any
+          stages {
+               
+                stage ('Build Job') {
+                     steps {
+                            echo 'Hi, This is akash from DXC'
+               }
+                     }
+
+               stage ('Test Job') {
+
+                    steps {
+                           input ('Do you want to proceed?')
+                    }
+             }
+
+              stage ('Deploy Job') {
+
+                           when {
+                                  not {
+                                        branch "master"
+                                      }
+                           }
+                 steps {
+                          echo "Hello"
+                 }
+          }
+
+}
+}
